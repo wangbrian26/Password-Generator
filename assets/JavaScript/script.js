@@ -133,9 +133,9 @@ function passwordCriteria() {
       "Do you want to include upper case letters in your password? Press ok if yes. If not, press cancel."
     );
     if (
-      userSpecialCharacters &&
-      userNumbers &&
-      userLettersLower &&
+      userSpecialCharacters === false &&
+      userNumbers === false &&
+      userLettersLower === false &&
       userLettersUpper === false
     ) {
       alert(
