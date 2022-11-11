@@ -17,7 +17,7 @@ N/A
 
 ## Usage
 
-The website is live [Password-Generator][https://github.com/wangbrian26/Password-Generator/]
+The website is live [Password-Generator][https://wangbrian26.github.io/Password-Generator/]
 
 This is a password generator that allows users to choose what they want to have in their randomly generated password. 
 
