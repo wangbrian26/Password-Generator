@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+// Global arrays that have all of the possible characters for the user's password.
 var specialCharacters = [
   " ",
   "!",
@@ -95,14 +97,15 @@ var lettersUpper = [
   "Z",
 ];
 
+// Global empty arrays that will have things inputed into it during the function.
+
 var userPassword = [];
 var possibleCharacters = [];
 
+// This is a function to take in the criteria that the user wants.
 function passwordCriteria() {
-  var passwordLength = parseInt(
-    prompt(
-      "How many characters would you like in your password? Please choose a number between 8 and 128."
-    )
+  var passwordLength = prompt(
+    "How many characters would you like in your password? Please choose a number between 8 and 128."
   );
   if (!passwordLength) {
     return;
@@ -116,7 +119,7 @@ function passwordCriteria() {
       "Your password needs to be less than 128 characters. Please try again."
     );
     passwordCriteria();
-  } else {
+  } else if (passwordLength >= 8 && passwordLength <= 128) {
     var userSpecialCharacters = confirm(
       "Do you want to include special characters in your password? Press ok if yes. If not, press cancel."
     );
@@ -149,16 +152,20 @@ function passwordCriteria() {
       };
     }
     return userPasswordCriteria;
+  } else {
+    alert("You must input a number.");
+    passwordCriteria();
   }
 }
 
+// This is a function to select a random character from the specific array
 function randomCharacter(array) {
   var randomCharacter = array[Math.floor(Math.random() * array.length)];
   return randomCharacter;
 }
 
 // Credit to javascript.info/task/shuffle
-
+// This is a function to shuffle the array. This allows me to shuffle the password at the end.
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -166,6 +173,7 @@ function shuffle(array) {
   }
 }
 
+// This is the function to generate the password.
 function generatePassword() {
   var userPassword = [];
   var possibleCharacters = [];
