@@ -98,7 +98,6 @@ var lettersUpper = [
 var userPassword = [];
 var possibleCharacters = [];
 
-console.log(possibleCharacters.concat(specialCharacters));
 function passwordCriteria() {
   var passwordLength = parseInt(
     prompt(
@@ -119,16 +118,16 @@ function passwordCriteria() {
     passwordCriteria();
   } else {
     var userSpecialCharacters = confirm(
-      "Do you want to include special characters in your password? Press ok if yes."
+      "Do you want to include special characters in your password? Press ok if yes. If not, press cancel."
     );
     var userNumbers = confirm(
-      "Do you want to include numbers in your password? Press ok if yes."
+      "Do you want to include numbers in your password? Press ok if yes. If not, press cancel."
     );
     var userLettersLower = confirm(
-      "Do you want to include lower case letters in your password? Press ok if yes."
+      "Do you want to include lower case letters in your password? Press ok if yes. If not, press cancel."
     );
     var userLettersUpper = confirm(
-      "Do you want to include upper case letters in your password? Press ok if yes."
+      "Do you want to include upper case letters in your password? Press ok if yes. If not, press cancel."
     );
     if (
       userSpecialCharacters &&
@@ -149,7 +148,6 @@ function passwordCriteria() {
         userLettersUpper: userLettersUpper,
       };
     }
-    // console.log(userPasswordCriteria);
     return userPasswordCriteria;
   }
 }
@@ -172,7 +170,6 @@ function generatePassword() {
   var userPassword = [];
   var possibleCharacters = [];
   var userOptions = passwordCriteria();
-  // console.log(userOptions);
   var i = 0;
   if (userOptions.userSpecialCharacters === true) {
     possibleCharacters = possibleCharacters.concat(specialCharacters);
@@ -183,19 +180,16 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(numbers);
     userPassword = userPassword.concat(randomCharacter(numbers));
     i++;
-    console.log(possibleCharacters);
   }
   if (userOptions.userLettersLower === true) {
     possibleCharacters = possibleCharacters.concat(lettersLower);
     userPassword = userPassword.concat(randomCharacter(lettersLower));
     i++;
-    // console.log(possibleCharacters);
   }
   if (userOptions.userLettersUpper === true) {
     possibleCharacters = possibleCharacters.concat(lettersUpper);
     userPassword = userPassword.concat(randomCharacter(lettersUpper));
     i++;
-    // console.log(possibleCharacters);
   }
   for (var i; i < userOptions.passwordLength; i++) {
     userPassword = userPassword.concat(randomCharacter(possibleCharacters));
